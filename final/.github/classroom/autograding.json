@@ -1,0 +1,274 @@
+{
+  "tests": [
+    {
+      "name": "1. Test Bits",
+      "setup": "",
+      "run": "make test-bits",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 5
+    },
+    {
+      "name": "2. Test Instruction",
+      "setup": "",
+      "run": "make test-instruction",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "5. Test control for ADD instruction",
+      "setup": "",
+      "run": "make test-control-add",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "6. Test control for AND instruction",
+      "setup": "",
+      "run": "make test-control-and",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "7. Test control for BR instruction",
+      "setup": "",
+      "run": "make test-control-br",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "8. Test control for JMP instruction",
+      "setup": "",
+      "run": "make test-control-jmp",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "9. Test control for JSR instruction",
+      "setup": "",
+      "run": "make test-control-jsr",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "10. Test control for LD instruction",
+      "setup": "",
+      "run": "make test-control-ld",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "11. Test control for LDI instruction",
+      "setup": "",
+      "run": "make test-control-ldi",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "12. Test control for LDR instruction",
+      "setup": "",
+      "run": "make test-control-ldr",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "13. Test control for ST instruction",
+      "setup": "",
+      "run": "make test-control-st",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "14. Test control for STI instruction",
+      "setup": "",
+      "run": "make test-control-sti",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "15. Test control for STR instruction",
+      "setup": "",
+      "run": "make test-control-str",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "16. Test running the emulator on test&#47;samples&#47;test.obj",
+      "setup": "make",
+      "run": "./x16 test/samples/test.obj",
+      "input": "",
+      "output": "**********HALT",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "17. Test assembler with just one line of code",
+      "setup": "make xas",
+      "run": "make ARGS=\"Xas.simple\" test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "18. Test assembler with comments",
+      "setup": "make xas",
+      "run": "make ARGS=\"Xas.comment\" test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "19. Test assembler with unused prior label",
+      "setup": "make xas",
+      "run": "make ARGS=\"Xas.prior\" test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "20. Test assembler with multiple instructions",
+      "setup": "make xas",
+      "run": "make ARGS=\"Xas.multi\" test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "21. Test assembler with forward labels",
+      "setup": "make xas",
+      "run": "make ARGS=\"Xas.forward\" test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "22. Test assembler with a loop program",
+      "setup": "",
+      "run": "make ARGS=\"Xas.loop\" test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "23. Test with all instructions",
+      "setup": "make xas",
+      "run": "make ARGS=\"Xas.all\" test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "24. Test assembler for an error with nonexistent label",
+      "setup": "make xas",
+      "run": "make ARGS=\"Xas.error.nolabel\" test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "25. Test assembler for an error with missing % before reg",
+      "setup": "make xas",
+      "run": "make ARGS=\"Xas.error.reg\" test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "26. Test assembler for an error with missing  $ before value",
+      "setup": "make xas",
+      "run": "make ARGS=\"Xas.error.imm\" test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 10
+    },
+    {
+      "name": "27. Test Style",
+      "setup": "sudo pip3 install cpplint",
+      "run": "cpplint *.c *.h",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "28. Test X16 Memory",
+      "setup": "sudo apt install valgrind; make x16",
+      "run": "valgrind --leak-check=full --show-leak-kinds=all --error-exitcode=1 ./x16 test/samples/test.obj",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 5
+    },
+    {
+      "name": "29. Test XAS Memory",
+      "setup": "make x16; make xas; sudo apt install valgrind",
+      "run": "valgrind --leak-check=full --show-leak-kinds=all --error-exitcode=1 ./xas test/samples/test.s",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 8
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+name: Autograding Tests
+'on':
+- push
+- workflow_dispatch
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Test 1. Test virtual address to page number
+      id: test-1-test-virtual-address-to-page-number
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 1. Test virtual address to page number
+        setup-command: ''
+        command: make test-to-page
+        timeout: 5
+        max-score: 1
+    - name: Test 2. Test virtual address to offset
+      id: test-2-test-virtual-address-to-offset
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 2. Test virtual address to offset
+        setup-command: ''
+        command: make test-to-offset
+        timeout: 5
+        max-score: 1
+    - name: Test 3. Test page and offset to address
+      id: test-3-test-page-and-offset-to-address
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 3. Test page and offset to address
+        setup-command: ''
+        command: make test-to-address
+        timeout: 5
+        max-score: 1
+    - name: Test 4. Test valid lookup that finds a physical address
+      id: test-4-test-valid-lookup-that-finds-a-physical-address
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 4. Test valid lookup that finds a physical address
+        setup-command: ''
+        command: make test-lookup-found
+        timeout: 10
+        max-score: 1
+    - name: Test 5. Test invalid virtual address lookup in TLB
+      id: test-5-test-invalid-virtual-address-lookup-in-tlb
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 5. Test invalid virtual address lookup in TLB
+        setup-command: ''
+        command: make test-lookup-not-found
+        timeout: 10
+        max-score: 1
+    - name: Test 6. Test ordering of TLB on access
+      id: test-6-test-ordering-of-tlb-on-access
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 6. Test ordering of TLB on access
+        setup-command: ''
+        command: make test-order
+        timeout: 10
+        max-score: 2
+    - name: Test 7. Test load of TLB from page table
+      id: test-7-test-load-of-tlb-from-page-table
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 7. Test load of TLB from page table
+        setup-command: ''
+        command: make test-load
+        timeout: 5
+        max-score: 2
+    - name: Test 8. Test lookup and load
+      id: test-8-test-lookup-and-load
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 8. Test lookup and load
+        setup-command: ''
+        command: make test-lookup-and-load
+        timeout: 10
+        max-score: 1
+    - name: Autograding Reporter
+      uses: education/autograding-grading-reporter@v1
+      env:
+        TEST-1-TEST-VIRTUAL-ADDRESS-TO-PAGE-NUMBER_RESULTS: "${{steps.test-1-test-virtual-address-to-page-number.outputs.result}}"
+        TEST-2-TEST-VIRTUAL-ADDRESS-TO-OFFSET_RESULTS: "${{steps.test-2-test-virtual-address-to-offset.outputs.result}}"
+        TEST-3-TEST-PAGE-AND-OFFSET-TO-ADDRESS_RESULTS: "${{steps.test-3-test-page-and-offset-to-address.outputs.result}}"
+        TEST-4-TEST-VALID-LOOKUP-THAT-FINDS-A-PHYSICAL-ADDRESS_RESULTS: "${{steps.test-4-test-valid-lookup-that-finds-a-physical-address.outputs.result}}"
+        TEST-5-TEST-INVALID-VIRTUAL-ADDRESS-LOOKUP-IN-TLB_RESULTS: "${{steps.test-5-test-invalid-virtual-address-lookup-in-tlb.outputs.result}}"
+        TEST-6-TEST-ORDERING-OF-TLB-ON-ACCESS_RESULTS: "${{steps.test-6-test-ordering-of-tlb-on-access.outputs.result}}"
+        TEST-7-TEST-LOAD-OF-TLB-FROM-PAGE-TABLE_RESULTS: "${{steps.test-7-test-load-of-tlb-from-page-table.outputs.result}}"
+        TEST-8-TEST-LOOKUP-AND-LOAD_RESULTS: "${{steps.test-8-test-lookup-and-load.outputs.result}}"
+      with:
+        runners: test-1-test-virtual-address-to-page-number,test-2-test-virtual-address-to-offset,test-3-test-page-and-offset-to-address,test-4-test-valid-lookup-that-finds-a-physical-address,test-5-test-invalid-virtual-address-lookup-in-tlb,test-6-test-ordering-of-tlb-on-access,test-7-test-load-of-tlb-from-page-table,test-8-test-lookup-and-load
