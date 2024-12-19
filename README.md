@@ -7,7 +7,7 @@ To give a rundown, the entirety of this program (with a focus on x16, xas, and x
 pdfs I have provided for the entirety of the assignment.
 
 to run, go to the 'final' folder. run ```make```, ```make xas```, ```make x16```, and ```make xod```. to play the maze game, run ```./x16 rogue.obj```. to play 2048, run ```./x16 2048.obj```. for both games, 
-follow the instructions on the terminal, and then ctrl-c to exit. Full disclosure - while I did do the brunt of the coding, the games themselves were not coded by me (although I am fascinated by what's going on
+follow the instructions on the terminal, and then ctrl-c to exit. Full disclosure - while I did do the brunt of the coding, the games and tests themselves were not coded by me (although I am fascinated by what's going on
 behind the scenes).
 
 If you have any questions, feel free to let me know. I'm happy to take a deeper dive into what's going on. 
